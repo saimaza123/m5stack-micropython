@@ -78,6 +78,7 @@ class Display(object):
         return getattr(self.tft, name)
 
     def create(self):
+        # https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/display
         tft = display.TFT()
         tft.init(
             tft.ILI9341,
@@ -94,7 +95,7 @@ class Display(object):
             backl_on=1,
             speed=self.speed,
             invrot=3,
-            bgr=True,
+            bgr=False,
             splash=False
         )
 

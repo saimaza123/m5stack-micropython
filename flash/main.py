@@ -49,9 +49,6 @@ battery = IP5306(i2c)
 def battery_level(timer):
     tft.text(tft.RIGHT, 2, str(battery.level) + "%")
 
-timer_0 = Timer(0)
-timer_0.init(period=5000, mode=Timer.PERIODIC, callback=battery_level)
-
 def button_handler_a(pin, pressed):
     if pressed is True:
         tft.text(
@@ -92,3 +89,5 @@ a = m5stack.ButtonA(callback=button_handler_a)
 b = m5stack.ButtonB(callback=button_handler_b)
 c = m5stack.ButtonC(callback=button_handler_c)
 
+timer_0 = Timer(0)
+timer_0.init(period=5000, mode=Timer.PERIODIC, callback=battery_level)
