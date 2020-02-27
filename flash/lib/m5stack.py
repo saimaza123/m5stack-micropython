@@ -81,7 +81,7 @@ class Display(object):
         # https://github.com/loboris/MicroPython_ESP32_psRAM_LoBo/wiki/display
         tft = display.TFT()
         tft.init(
-            tft.ILI9341,
+            tft.M5STACK,
             spihost=tft.HSPI,
             width=320,
             height=240,
@@ -95,14 +95,14 @@ class Display(object):
             backl_on=1,
             speed=self.speed,
             invrot=3,
-            bgr=False,
+            bgr=True,
             splash=False
         )
 
         tft.orient(tft.LANDSCAPE)
-        tft.set_fg(tft.BLACK)
-        tft.set_bg(tft.WHITE)
-        tft.clear(tft.WHITE)
+        # tft.set_fg(tft.BLACK)
+        # tft.set_bg(tft.WHITE)
+        # tft.clear(tft.WHITE)
         tft.font(tft.FONT_Small, fixedwidth=True)
         return tft
 
